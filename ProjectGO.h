@@ -11,7 +11,7 @@ class board {
 
         void setDimension(int dimension);
         void draw();
-        void evaluate();
+        bool evaluate();
         void clear();
 
         int getDimension() { return b_dimension; }
@@ -51,6 +51,7 @@ class player {
         void setColor(int color);
         void resetCaptured();
         void capture();
+        bool place(piece p);
 
         int getColor() { return p_color; }
         int getCaptures() { return p_captured; }

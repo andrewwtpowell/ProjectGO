@@ -11,11 +11,20 @@ void board::setDimension(int dimension) {
     b_dimension = dimension;
 }
 
+/*
+    Draws a board of a variable size in the terminal for the game.
+*/
 void board::draw() {
 
+    string row = "+";
+    row.append(getDimension()-1, '+');
+
+    for(int i = 0; i < getDimension(); i++) {
+        cout << row << "\n";
+    }
 }
 
-void board::evaluate() {
+bool board::evaluate() {
 
 }
 
@@ -61,4 +70,29 @@ void player::resetCaptured() {
 
 void player::capture() {
     p_captured++;
+}
+
+bool player::place(piece p) {
+
+}
+
+int main () {
+
+    //initialize the board
+    int size;
+    cout << "What size board would you like to play on? (Max: 19)\n";
+    cin >> size;
+    board b = board(size);
+    b.draw();
+
+    //initialize the players
+    player p1 = player(0);
+    player p2 = player(1);
+
+    //game loop
+    //game goes on until both players pass
+    while()
+
+
+    return 0;
 }
