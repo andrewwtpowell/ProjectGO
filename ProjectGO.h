@@ -1,10 +1,12 @@
 #pragma once
 #include <utility>
+#include <vector>
 
 class board {
 
     private:
         int b_dimension;
+        std::vector<std::vector<unsigned char>> places;
 
     public:
         board(int dimension);

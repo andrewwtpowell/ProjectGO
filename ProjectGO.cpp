@@ -4,7 +4,14 @@
 using namespace std;
 
 board::board(int dimension) {
+
     setDimension(dimension);
+
+    //initialize 2D vector for each place on the board
+    places.resize(dimension);
+    for(int i = 0; i < dimension; i++)
+        places[i].resize(dimension);
+
 }
 
 void board::setDimension(int dimension) {
@@ -72,6 +79,9 @@ void player::capture() {
     p_captured++;
 }
 
+//piece must be placed where there is at least one open liberty.
+//piece cannot be played where a piece already exists.
+//piece cannot be played in the same spot as the previous move for the player.
 bool player::place(piece p) {
 
 }
@@ -91,7 +101,23 @@ int main () {
 
     //game loop
     //game goes on until both players pass
-    while()
+    bool endgame = false;
+    while(!endgame) {
+        //find all captures
+
+        //trigger player 1 to place a piece
+
+        //player 1 places a piece or passes
+
+        //trigger player 2 to place a piece
+
+        //player 2 places a piece or passes
+
+        //check if both players passed. If so, endgame = true
+
+    }
+
+    //evaluate the board to determine final score
 
 
     return 0;
