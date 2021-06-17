@@ -18,9 +18,8 @@ void board::setDimension(int dimension) {
     b_dimension = dimension;
 }
 
-/*
-    Draws a board of a variable size in the terminal for the game.
-*/
+
+//Draws a board of a variable size in the terminal for the game.
 void board::draw() {
 
     string row = "+";
@@ -37,6 +36,10 @@ bool board::evaluate() {
 
 void board::clear() {
 
+}
+
+bool board::place(piece p) {
+    
 }
 
 piece::piece(int xPos, int yPos, int id, int color) {
@@ -79,13 +82,6 @@ void player::capture() {
     p_captured++;
 }
 
-//piece must be placed where there is at least one open liberty.
-//piece cannot be played where a piece already exists.
-//piece cannot be played in the same spot as the previous move for the player.
-bool player::place(piece p) {
-
-}
-
 int main () {
 
     //initialize the board
@@ -99,21 +95,41 @@ int main () {
     player p1 = player(0);
     player p2 = player(1);
 
+    //player move coordinate variables
+    int p1_move_x = -1;
+    int p1_move_y = -1;
+    int p2_move_x = -1;
+    int p2_move_y = -1;
+
     //game loop
     //game goes on until both players pass
     bool endgame = false;
     while(!endgame) {
-        //find all captures
+        //find all captures and legal spaces to move (or illegal spaces)
+
+        //draw board with moves from last board iteration
 
         //trigger player 1 to place a piece
-
         //player 1 places a piece or passes
+        cout << "Player 1 enter the x coordinate of your move (enter -1 to pass)\n";
+        cin >> p1_move_x;
+        cout << "Player 1 enter the y coordinate of your move (enter -1 to pass)\n";
+        cin >> p1_move_y;
 
         //trigger player 2 to place a piece
-
         //player 2 places a piece or passes
+        cout << "Player 2 enter the x coordinate of your move (enter -1 to pass)\n";
+        cin >> p2_move_x;
+        cout << "Player 2 enter the y coordinate of your move (enter -1 to pass)\n";
+        cin >> p2_move_y;
 
         //check if both players passed. If so, endgame = true
+        if((p1_move_x == -1 || p1_move_y == -1) && (p2_move_x == -1 || p2_move_y == -1)) {
+            endgame = true;
+            break;
+        }
+
+        //check if players moves are within the grid
 
     }
 

@@ -2,23 +2,6 @@
 #include <utility>
 #include <vector>
 
-class board {
-
-    private:
-        int b_dimension;
-        std::vector<std::vector<unsigned char>> places;
-
-    public:
-        board(int dimension);
-
-        void setDimension(int dimension);
-        void draw();
-        bool evaluate();
-        void clear();
-
-        int getDimension() { return b_dimension; }
-
-};
 
 class piece {
 
@@ -40,6 +23,25 @@ class piece {
 
 };
 
+class board {
+
+    private:
+        int b_dimension;
+        std::vector<std::vector<unsigned char>> places;
+
+    public:
+        board(int dimension);
+
+        void setDimension(int dimension);
+        bool place(piece p);
+        void draw();
+        bool evaluate();
+        void clear();
+
+        int getDimension() { return b_dimension; }
+
+};
+
 class player {
 
     private:
@@ -49,11 +51,9 @@ class player {
     public:
         player(int color);
 
-        void place();
         void setColor(int color);
         void resetCaptured();
         void capture();
-        bool place(piece p);
 
         int getColor() { return p_color; }
         int getCaptures() { return p_captured; }
