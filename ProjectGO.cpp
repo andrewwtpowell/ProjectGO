@@ -130,6 +130,9 @@ int main () {
         }
 
         //check if players moves are within the grid
+        if(p1_move_x < 0 || p1_move_x > size || p1_move_y < 0 || p1_move_y > size || p2_move_x < 0 || p2_move_x > size || p2_move_y < 0 || p2_move_y > size) {
+            //require a new move to be played
+        }
 
     }
 
