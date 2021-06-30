@@ -27,9 +27,10 @@ class board {
 
     private:
         int b_dimension;
-        std::vector<std::vector<unsigned char>> places;
 
     public:
+        std::vector<std::vector<unsigned char>> places;
+
         board(int dimension);
 
         void setDimension(int dimension);

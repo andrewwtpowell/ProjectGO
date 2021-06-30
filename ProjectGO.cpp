@@ -105,7 +105,19 @@ int main () {
     //game goes on until both players pass
     bool endgame = false;
     while(!endgame) {
-        //find all captures and legal spaces to move (or illegal spaces)
+
+        //find all captures 
+        //iterate through 2D vector for board
+        for(int i = 0; i < b.places.size(); i++) {
+            for(int j = 0; b.places[i].size(); j++) {
+                //
+            }
+        }
+        //  every time you come across a piece check the four adjacent pieces to see if it has been captured
+        //  i.e. piece at x=2, y=1 -> check (1,1), (2,2), (3,1)
+        //  if all adjacent have a piece then the piece is captured and the opposing player gets its captures incremented
+
+        //find legal spaces to move (or illegal spaces)
 
         //draw board with moves from last board iteration
 
