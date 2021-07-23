@@ -23,10 +23,24 @@ class piece {
 
 };
 
+class group {
+
+    private:
+
+        std::vector<piece> pieces;
+
+    public:
+
+        std::vector<piece> getPieces() { return pieces; }
+        void addPiece(piece p);
+
+};
+
 class board {
 
     private:
         int b_dimension;
+        std::vector<group> groups;
 
     public:
         std::vector<std::vector<unsigned char>> places;
@@ -40,6 +54,9 @@ class board {
         void clear();
 
         int getDimension() { return b_dimension; }
+        std::vector<group> getGroups() { return groups; }
+        void addGroup(group g) { groups.push_back(g); }
+        
 
 };
 
@@ -54,8 +71,8 @@ class player {
 
         void setColor(int color);
         void resetCaptured();
-        void capture();
-
+        
+        void inc_captures(int num) { p_captured+= num; }
         int getColor() { return p_color; }
         int getCaptures() { return p_captured; }
 
