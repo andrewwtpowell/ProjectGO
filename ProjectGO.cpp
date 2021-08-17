@@ -1,3 +1,4 @@
+/*
 #include "ProjectGO.h"
 #include <iostream>
 
@@ -125,7 +126,7 @@ int main () {
     int turn_counter = 0;
 
     //new algorithm
-    /*
+    
         Trigger player whose turn it is to move (keep a variable to determine whose move it is)
 
         If player passes and other player passed the move previously -> game over -> trigger evaluation of board
@@ -159,7 +160,7 @@ int main () {
         ************
 
 
-    */
+    
 
     //game loop
     //game loops until both players pass
@@ -388,6 +389,7 @@ int main () {
         if(p1_move_x < 0 || p1_move_x > size || p1_move_y < 0 || p1_move_y > size || p2_move_x < 0 || p2_move_x > size || p2_move_y < 0 || p2_move_y > size) {
             //require a new move to be played
         }
-        */
+        
 
 }
+*/
