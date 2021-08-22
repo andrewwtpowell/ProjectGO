@@ -1,6 +1,7 @@
 #include "ProjectGO.h"
 #include <iostream>
 #include <algorithm>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -103,6 +104,10 @@ board::board(int dimension) {
 
 bool board::place(piece p) {
 
+    //check that coordinates are within the bounds of the 2d vector
+    if(p.getXPos() < 0 || p.getYPos() < 0 || p.getXPos() >= b_dimension || p.getYPos() >= b_dimension)
+        return false;
+
     //check to see if there is a piece that already exists in the location
     if(places[p.getXPos()][p.getYPos()] == 0) {
 
@@ -143,8 +148,8 @@ int* board::evaluate() {
     // + number of empty points that a player's pieces surround
 
     //count up number of pieces each player has on the board 
-    for(int i = 0; i < places.size()-1; i++) {
-        for(int j = 0; j < places[i].size()-1; j++) {
+    for(int i = 0; i < places.size(); i++) {
+        for(int j = 0; j < places[i].size(); j++) {
             //increment player score for each piece found
             if(places[i][j] == 1)
                 scores[0]++;
@@ -154,8 +159,39 @@ int* board::evaluate() {
     }
 
     //find places that a player's pieces surround
+    //use depth first traversal
 
+    //track which places have been visited
+    //initialize to false
+    vector<vector<bool>> visited;
+    visited.resize(b_dimension);
+    for(int i = 0; i < b_dimension; i++) {
+        visited[i].resize(b_dimension);
+        for(int j = 0; j < b_dimension; j++) {
+            visited[i][j] = false;
+        }
+    }
 
+    //iterate through places vector finding each empty space to search through
+    for(int i = 0; i < b_dimension; i++) {
+        for(int j = 0; j < b_dimension; j++) {
+            if(places[i][j] == 0)
+                scores[0] += findSurrounding(visited, i, j, 1);
+        }
+    }
+    
+    //re-initialize visited vector to false
+    for(int i = 0; i < b_dimension; i++) 
+        for(int j = 0; j < b_dimension; j++) 
+            visited[i][j] = false;
+
+    //iterate through places vector finding each empty space to search through
+    for(int i = 0; i < b_dimension; i++) {
+        for(int j = 0; j < b_dimension; j++) {
+            if(places[i][j] == 0)
+                scores[1] += findSurrounding(visited, i, j, 2);
+        }
+    }
 
     return scores;
 }
@@ -171,8 +207,68 @@ void board::clear() {
 
 }
 
-int board::findSurrounding(int color) {
-    return 0;
+int board::findSurrounding(vector<vector<bool>> &visited, int x, int y, int color) {
+
+    //initialize stack
+    stack<pair<int, int>> st;
+    st.push({x,y});
+
+    //variable to count number of surrounded places found
+    int numSurrounded = 0;
+
+    //variable to count number of surrounders
+    int surrounders = 0;
+
+    //direction vectors
+    int d_x[] = { 0, 1, 0, -1 };
+    int d_y[] = { -1, 0, 1, 0 };
+
+    while(!st.empty()) {
+        pair<int, int> curr = st.top();
+        st.pop();
+
+        int x = curr.first;
+        int y = curr.second;
+
+        //check coordinates are within bounds
+        if(x < 0 || y < 0 || x >= b_dimension || y >= b_dimension)
+            continue;
+        //check if already visited
+        else if(visited[x][y])
+            continue;
+        //check if unoccupied place
+        else if(places[x][y] != 0) {
+
+            //check if surrounded by incorrect color
+            if(places[x][y] != color) {
+                numSurrounded = 0;
+                break;
+            }
+            
+            surrounders++;
+            continue;
+        }
+            
+
+        //mark current place as visited
+        visited[x][y] = true;
+
+        //increment number of surrounded places found
+        numSurrounded++;
+
+        //push adjacent places onto stack
+        for(int i = 0; i < 4; i++) {
+            int adjx = x + d_x[i];
+            int adjy = y + d_y[i];
+            st.push({adjx, adjy});
+        }
+
+
+    }
+    if(surrounders >= numSurrounded)
+        return numSurrounded;
+    else
+        return 0;
 }
 
 //Find liberties for a group (if any)
@@ -420,10 +516,19 @@ int main() {
     //Create board, players, and pieces
     //Basic loop where players are prompted to place pieces and board is drawn
 
-    board b = board(9);
     player p1 = player(1);
     player p2 = player(2);
     piece p = piece();
+    board b = board();
+    int size = 9;
+
+    cout << "What size board would you like to play on? (min: 5, max: 19)\n";
+    cin >> size;
+    
+    if(size < 5 || size > 19)
+        b = board(9);
+    else
+        b = board(size);
 
     b.draw();
 
@@ -434,9 +539,12 @@ int main() {
     int turn_counter = 0;
     int x = -1;
     int y = -1;
+    int row, col;
+    int *scores;
+    int p1_score, p2_score;
 
     //game loops until both players pass
-    while(!p1_pass && !p2_pass) {
+    while(!p1_pass || !p2_pass) {
 
         valid_move = false;
 
@@ -456,9 +564,13 @@ int main() {
                     break;
                 }
 
+                //convert x and y coordinates to row and col of 2d vector
+                row = b.getDimension() - y;
+                col = x - 1;
+
                 //Create piece based on player input
-                p.setXPos(x);
-                p.setYPos(y);
+                p.setXPos(row);
+                p.setYPos(col);
                 p.setID(turn_counter);
                 p.setColor(1);
 
@@ -475,9 +587,13 @@ int main() {
                     break;
                 }
 
+                //convert x and y coordinates to row and col of 2d vector
+                row = b.getDimension() - y;
+                col = x - 1;
+
                 //Create piece based on player input
-                p.setXPos(x);
-                p.setYPos(y);
+                p.setXPos(row);
+                p.setYPos(col);
                 p.setID(turn_counter);
                 p.setColor(2);
             }
@@ -523,6 +639,22 @@ int main() {
 
     }
 
+
+    scores = b.evaluate();
+    p1_score = scores[0];
+    p2_score = scores[1];
+
+    cout << "Player 1's score is " << p1_score << endl;
+    cout << "Player 2's score is " << p2_score << endl;
+    if(p1_score > p2_score) {
+        cout << "Player 1 wins!\n";
+    }
+    else if (p1_score < p2_score) {
+        cout << "Player 2 wins!\n";
+    }
+    else {
+        cout << "It's a draw!\n";
+    }
     return 0;
 
 }

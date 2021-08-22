@@ -66,7 +66,7 @@ class board {
         void draw();
         int* evaluate();
         void clear();
-        int findSurrounding(int color);
+        int findSurrounding(std::vector<std::vector<bool>> &visited, int x, int y, int color);
         int calcLiberties(group g);
         void removeGroup(group g);
         group findFriends(group g);
