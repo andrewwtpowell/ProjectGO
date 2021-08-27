@@ -22,6 +22,7 @@ int main() {
 
     cout << "What size board would you like to play on? (min: 5, max: 19)\n";
     cin >> size;
+    cout << "\n";
     
     if(size < 5 || size > 19)
         b = board(9);
@@ -55,6 +56,7 @@ int main() {
                 cin >> x;
                 cout << "Player 1 specify y position of your move. Enter -1 to pass your turn.\n";
                 cin >> y;
+                cout << "\n";
 
                 //break loop if player passes
                 if(x == -1 && y == -1) {
@@ -78,6 +80,7 @@ int main() {
                 cin >> x;
                 cout << "Player 2 specify y position of your move. Enter -1 to pass your turn.\n";
                 cin >> y;
+                cout << "\n";
 
                 //break loop if player passes
                 if(x == -1 && y == -1) {

@@ -49,6 +49,12 @@ void board::draw() {
 
     //iterate through board
     for(int i = 0; i < places.size(); ++i) {
+
+        if(places.size()-i < 10) 
+            cout << places.size() - i << "    ";
+        else
+            cout << places.size() - i << "   ";
+
         for(int j = 0; j < places[i].size(); ++j) {
             //print + for no piece, W for white piece, B for black piece
             if(places[i][j] == 0) {
@@ -63,6 +69,13 @@ void board::draw() {
         }
         cout << "\n";
     }
+
+    cout << "\n     ";
+    for(int i = 0; i < places.size(); i++) {
+            cout << (i+1) % 10 << " ";
+
+    }
+    cout << "\n\n";
 
 }
 
