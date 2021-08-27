@@ -1,4 +1,5 @@
-#pragma once
+#ifndef PLAYER_H
+#define PLAYER_H
 
 class player {
 
@@ -16,3 +17,5 @@ class player {
         int getCaptures() { return p_captured; }
 
 };
+
+#endif

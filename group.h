@@ -1,4 +1,6 @@
-#pragma once
+#ifndef GROUP_H
+#define GROUP_H
+
 #include "piece.h"
 #include <utility>
 #include <vector>
@@ -23,3 +25,5 @@ class group {
         bool operator!= (const group &other) const;
 
 };
+
+#endif

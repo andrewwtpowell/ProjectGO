@@ -1,4 +1,6 @@
-#pragma once
+#ifndef BOARD_H
+#define BOARD_H
+
 #include "group.h"
 #include <utility>
 #include <vector>
@@ -31,3 +33,5 @@ class board {
         
 
 };
+
+#endif

@@ -1,4 +1,6 @@
-#pragma once
+#ifndef PIECE_H
+#define PIECE_H
+
 #include <utility>
 #include <vector>
 
@@ -26,3 +28,5 @@ class piece {
         bool operator!= (const piece &other) const;
 
 };
+
+#endif
