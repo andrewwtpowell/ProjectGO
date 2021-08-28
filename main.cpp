@@ -1,6 +1,6 @@
-#include "piece.cpp"
-#include "group.cpp"
-#include "board.cpp"
+#include "piece.h"
+#include "group.h"
+#include "board.h"
 #include "player.h"
 #include <iostream>
 #include <algorithm>
