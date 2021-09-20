@@ -1,0 +1,6 @@
+/home/apowell/projects/ProjectGO/build/CMakeFiles/rebuild_cache.dir
+/home/apowell/projects/ProjectGO/build/CMakeFiles/edit_cache.dir
+/home/apowell/projects/ProjectGO/build/CMakeFiles/TestLibrary.dir
+/home/apowell/projects/ProjectGO/build/CMakeFiles/TestGo.dir
+/home/apowell/projects/ProjectGO/build/CMakeFiles/MainLibrary.dir
+/home/apowell/projects/ProjectGO/build/CMakeFiles/PlayGo.dir

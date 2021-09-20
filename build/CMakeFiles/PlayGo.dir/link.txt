@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/PlayGo.dir/src/board.cpp.o CMakeFiles/PlayGo.dir/src/group.cpp.o CMakeFiles/PlayGo.dir/src/piece.cpp.o CMakeFiles/PlayGo.dir/main.cpp.o  -o PlayGo 

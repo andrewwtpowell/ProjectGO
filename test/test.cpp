@@ -1,5 +1,5 @@
 #define CONFIG_CATCH_MAIN
-#include <ProjectGO/Catch2/src/catch2/catch_test_macros.hpp>
+#include <catch2/catch_test_macros.hpp>
 #include "group.h"
 #include "board.h"
 

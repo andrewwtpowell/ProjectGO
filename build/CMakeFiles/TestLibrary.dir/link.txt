@@ -1,0 +1,2 @@
+/usr/bin/ar qc libTestLibrary.a  CMakeFiles/TestLibrary.dir/src/board.cpp.o CMakeFiles/TestLibrary.dir/src/group.cpp.o CMakeFiles/TestLibrary.dir/src/piece.cpp.o CMakeFiles/TestLibrary.dir/test/test.cpp.o
+/usr/bin/ranlib libTestLibrary.a
