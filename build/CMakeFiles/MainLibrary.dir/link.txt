@@ -1,0 +1,2 @@
+/usr/bin/ar qc libMainLibrary.a  CMakeFiles/MainLibrary.dir/src/board.cpp.o CMakeFiles/MainLibrary.dir/src/group.cpp.o CMakeFiles/MainLibrary.dir/src/piece.cpp.o CMakeFiles/MainLibrary.dir/main.cpp.o
+/usr/bin/ranlib libMainLibrary.a

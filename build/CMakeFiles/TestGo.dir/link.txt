@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/TestGo.dir/src/board.cpp.o CMakeFiles/TestGo.dir/src/group.cpp.o CMakeFiles/TestGo.dir/src/piece.cpp.o CMakeFiles/TestGo.dir/test/test.cpp.o  -o TestGo  /usr/local/lib/libCatch2Main.a /usr/local/lib/libCatch2.a 
