@@ -1,13 +1,13 @@
 build/release/test/test.o: test/test.cpp \
- Catch2/src/catch2/catch_test_macros.hpp include/group.h include/piece.h \
- include/board.h include/group.h
+ /home/apowell/projects/ProjectGO/include/group.h \
+ /home/apowell/projects/ProjectGO/include/piece.h \
+ /home/apowell/projects/ProjectGO/include/board.h \
+ /home/apowell/projects/ProjectGO/include/group.h
 
-Catch2/src/catch2/catch_test_macros.hpp:
+/home/apowell/projects/ProjectGO/include/group.h:
 
-include/group.h:
+/home/apowell/projects/ProjectGO/include/piece.h:
 
-include/piece.h:
+/home/apowell/projects/ProjectGO/include/board.h:
 
-include/board.h:
-
-include/group.h:
+/home/apowell/projects/ProjectGO/include/group.h:

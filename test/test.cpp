@@ -1,7 +1,7 @@
 #define CONFIG_CATCH_MAIN
 #include <catch2/catch_test_macros.hpp>
-#include "group.h"
-#include "board.h"
+#include "/home/apowell/projects/ProjectGO/include/group.h"
+#include "/home/apowell/projects/ProjectGO/include/board.h"
 
 
 // Test Group functions
@@ -71,6 +71,30 @@ TEST_CASE("Groups can be combined","[group]") {
 //Test Board functions
 
 //Test place function
+TEST_CASE("Pieces can be placed within the grid","[board]") {
+
+    //Setup
+    //Create a board
+    
+    //Create pieces
+
+    //Test placing pieces in open spots
+    SECTION("Pieces can be placed") {
+
+    }
+
+    //Test placing pieces in occupied spots
+    SECTION("Pieces cannot be placed in occupied locations") {
+
+    }
+
+    //Test placing pieces outside of the bounds of the board
+    SECTION("Pieces cannot be placed outside of the bounds of the board") {
+        
+    }
+
+    
+}
 
 //Test evaluate function
 

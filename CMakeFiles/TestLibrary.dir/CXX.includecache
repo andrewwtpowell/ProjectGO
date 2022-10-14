@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/apowell/projects/ProjectGO/include/board.h
+group.h
+/home/apowell/projects/ProjectGO/include/group.h
+utility
+-
+vector
+-
+
+/home/apowell/projects/ProjectGO/include/group.h
+piece.h
+/home/apowell/projects/ProjectGO/include/piece.h
+utility
+-
+vector
+-
+
+/home/apowell/projects/ProjectGO/include/piece.h
+utility
+-
+vector
+-
+
+/home/apowell/projects/ProjectGO/test/test.cpp
+catch2/catch_test_macros.hpp
+-
+/home/apowell/projects/ProjectGO/include/group.h
+-
+/home/apowell/projects/ProjectGO/include/board.h
+-
+

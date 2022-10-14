@@ -1,4 +1,5 @@
-#include "board.h"
+#include "/home/apowell/projects/ProjectGO/include/board.h"
+
 #include <iostream>
 #include <bits/stdc++.h>
 
