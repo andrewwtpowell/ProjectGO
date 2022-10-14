@@ -70,3 +70,14 @@ TEST_CASE("Groups can be combined","[group]") {
 
 //Test Board functions
 
+//Test place function
+
+//Test evaluate function
+
+//Test findSurrounding function
+
+//Test calcLiberties function
+
+//Test removeGroup function
+
+//Test findFriends function
