@@ -39,6 +39,8 @@ bool board::place(piece p) {
         //place piece on board
         places[p.getXPos()][p.getYPos()] = p.getColor();
 
+        pieces_placed++;
+
         return true;
     }
     else 

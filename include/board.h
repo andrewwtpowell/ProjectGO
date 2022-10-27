@@ -11,6 +11,7 @@ class board {
         int b_dimension;
         std::vector<group> groups;
         int scores[2] = {0,0};
+        int pieces_placed = 0;
 
     public:
         std::vector<std::vector<unsigned char>> places;
@@ -30,6 +31,7 @@ class board {
         int getDimension() { return b_dimension; }
         std::vector<group> getGroups() { return groups; }
         void addGroup(group g) { groups.push_back(g); }
+        int getPiecesPlaced() { return pieces_placed; }
         
 
 };
